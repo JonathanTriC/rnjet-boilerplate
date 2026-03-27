@@ -8,6 +8,7 @@
 ## 📸 Preview
 
 Example generated app:
+
 <img width="330" height="717" alt="Light Mode" src="https://github.com/user-attachments/assets/bf05fd5e-71f8-473c-a0ca-489c91a15029" />
 <img width="330" height="717" alt="Dark Mode" src="https://github.com/user-attachments/assets/ca8be6e2-60df-4ded-8b42-1bd494774914" />
 
