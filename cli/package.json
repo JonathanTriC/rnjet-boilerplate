@@ -2,6 +2,16 @@
 	"name": "rnjet",
 	"version": "1.0.0",
 	"description": "Production-grade CLI tool and boilerplate system for React Native",
+	"keywords": [
+		"react-native",
+		"cli",
+		"boilerplate",
+		"mobile",
+		"starter",
+		"react-native-cli",
+		"rn"
+	],
+	"author": "Jonathan Tri",
 	"main": "dist/index.js",
 	"bin": {
 		"rnjet": "./dist/index.js"
