@@ -56,16 +56,8 @@ Example generated app:
 
 ## 🚀 Getting Started
 
-### 1. Install dependencies
-
 ```bash
-yarn install
-```
-
-### 2. Initialize project
-
-```bash
-npx rnjet init
+npx @jonathantri/rnjet init
 ```
 
 ---
