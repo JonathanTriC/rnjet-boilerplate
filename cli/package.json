@@ -1,32 +1,40 @@
 {
-  "name": "rnjet",
-  "version": "1.0.0",
-  "description": "Production-grade CLI tool and boilerplate system for React Native",
-  "main": "dist/index.js",
-  "bin": {
-    "rnjet": "./dist/index.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
-  },
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "commander": "^11.1.0",
-    "fs-extra": "^11.2.0",
-    "inquirer": "^8.2.6",
-    "lodash": "^4.17.21",
-    "ora": "^5.4.1",
-    "sharp": "^0.34.5",
-    "shelljs": "^0.8.5",
-    "xcode": "^3.0.1"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^11.0.4",
-    "@types/inquirer": "^8.2.10",
-    "@types/lodash": "^4.14.202",
-    "@types/node": "^20.11.24",
-    "@types/shelljs": "^0.8.15",
-    "typescript": "^5.3.3"
-  }
+	"name": "rnjet",
+	"version": "1.0.0",
+	"description": "Production-grade CLI tool and boilerplate system for React Native",
+	"main": "dist/index.js",
+	"bin": {
+		"rnjet": "./dist/index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JonathanTriC/rnjet-boilerplate.git"
+	},
+	"homepage": "https://github.com/JonathanTriC/rnjet-boilerplate",
+	"bugs": {
+		"url": "https://github.com/JonathanTriC/rnjet-boilerplate/issues"
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepare": "npm run build"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"commander": "^11.1.0",
+		"fs-extra": "^11.2.0",
+		"inquirer": "^8.2.6",
+		"lodash": "^4.17.21",
+		"ora": "^5.4.1",
+		"sharp": "^0.34.5",
+		"shelljs": "^0.8.5",
+		"xcode": "^3.0.1"
+	},
+	"devDependencies": {
+		"@types/fs-extra": "^11.0.4",
+		"@types/inquirer": "^8.2.10",
+		"@types/lodash": "^4.14.202",
+		"@types/node": "^20.11.24",
+		"@types/shelljs": "^0.8.15",
+		"typescript": "^5.3.3"
+	}
 }
