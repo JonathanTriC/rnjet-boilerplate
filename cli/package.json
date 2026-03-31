@@ -20,6 +20,7 @@
 		"dist",
 		"README.md"
 	],
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/JonathanTriC/rnjet-boilerplate.git"

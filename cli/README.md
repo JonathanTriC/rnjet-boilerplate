@@ -5,6 +5,14 @@
 
 ---
 
+## 🚀 Getting Started
+
+```bash
+npx @jonathantri/rnjet init
+```
+
+---
+
 ## 📸 Preview
 
 Example generated app:
@@ -51,14 +59,6 @@ Example generated app:
 | react-native-mmkv       | Persistent storage                                                  |
 | i18next / react-i18next | Internationalization                                                |
 | react-native-config     | Environment config                                                  |
-
----
-
-## 🚀 Getting Started
-
-```bash
-npx @jonathantri/rnjet init
-```
 
 ---
 
