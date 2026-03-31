@@ -169,6 +169,12 @@ RNJet generates additional plist files:
 
 ---
 
+## ⛏️ Dig Deeper
+
+Read full documentation [here](https://rnjet.jonathantri.com)
+
+---
+
 ## 🤝 Contributing
 
 PRs are welcome! Feel free to open issues or suggest improvements.

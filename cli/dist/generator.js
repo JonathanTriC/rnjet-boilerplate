@@ -76,7 +76,7 @@ async function generateProject(answers) {
         "src/assets/app-icon/production",
         "scripts",
         "src/assets/images",
-        "src/components/base",
+        "src/components/text",
         "src/constants",
         "src/hooks",
         "src/navigation",
@@ -807,9 +807,10 @@ export const styles = StyleSheet.create({
 });
 `);
     fs_extra_1.default.writeFileSync(path_1.default.join(homeDir, "HomeScreen.tsx"), `import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles';
 import useHomeScreen from './useHomeScreen';
+import { Text } from '@components';
 
 export const HomeScreen = () => {
   const {
@@ -829,46 +830,53 @@ export const HomeScreen = () => {
       <View style={styles.header}>
         <Image source={icon} style={styles.imagePlaceholder} />
 
-        <Text style={[styles.title, { color: theme.text }]}>
-          {translate('welcome:greeting')}
-        </Text>
+        <Text trans="welcome:greeting" type="bold-2xl" />
 
-        <Text style={styles.subtitle}>{translate('welcome:description')}</Text>
+        <Text
+          trans="welcome:description"
+          type="regular-lg"
+          color="text.secondary"
+          textAlign="center"
+        />
       </View>
 
       <View style={styles.controlSection}>
         <TouchableOpacity
-          style={[styles.btnOutline, { borderColor: theme.text }]}
+          style={[styles.btnOutline, { borderColor: theme.text.primary }]}
           onPress={toggleTheme}
         >
-          <Text style={[styles.btnOutlineText, { color: theme.text }]}>
-            {scheme === 'dark'
-              ? \`☀️ \${translate('welcome:switchLightMode')}\`
-              : \`🌙 \${translate('welcome:switchDarkMode')}\`}
-          </Text>
+          <Text
+            text={
+              scheme === 'dark'
+                ? \`☀️ \${translate('welcome:switchLightMode')}\`
+                : \`🌙 \${translate('welcome:switchDarkMode')}\`
+            }
+            type="bold-lg"
+          />
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={[styles.btnOutline, { borderColor: theme.text }]}
+          style={[styles.btnOutline, { borderColor: theme.text.primary }]}
           onPress={toggleLanguage}
         >
-          <Text style={[styles.btnOutlineText, { color: theme.text }]}>
-            🌐{' '}
-            {i18n.language === 'id'
-              ? translate('welcome:indonesian')
-              : translate('welcome:english')}
-          </Text>
+          <Text
+            text={\`🌐 \${
+              i18n.language === 'id'
+                ? translate('welcome:english')
+                : translate('welcome:indonesian')
+            }\`}
+            type="bold-lg"
+          />
         </TouchableOpacity>
       </View>
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>{ENV}</Text>
-        <Text style={styles.footerText}>{bundleId}</Text>
+        <Text text={ENV} type="light-sm" color="text.secondary" />
+        <Text text={bundleId} type="light-sm" color="text.secondary" />
       </View>
     </View>
   );
 };
-
 `);
     fs_extra_1.default.writeFileSync(path_1.default.join(homeDir, "useHomeScreen.ts"), `import { useTheme, useTypedTranslation } from '@hooks';
 import Config from 'react-native-config';
@@ -916,23 +924,168 @@ export default useHomeScreen;
     fs_extra_1.default.writeFileSync(path_1.default.join(homeDir, "index.ts"), `export * from './HomeScreen';\n`);
     fs_extra_1.default.writeFileSync(path_1.default.join(mainDir, "index.ts"), `export * from './home';\n`);
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/modules/index.ts"), `export * from './main';\n`);
-    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/light.ts"), `export const lightTheme = {
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/light.ts"), `export type ThemeType = typeof lightTheme;
+export type ColorProp = keyof ThemeType;
+
+export const lightTheme = {
   background: '#ffffff',
-  text: '#000000'
+  text: {
+    primary: '#000000',
+    secondary: '#8E8E93',
+  },
 };
 `);
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/dark.ts"), `export const darkTheme = {
   background: '#000000',
-  text: '#ffffff'
+  text: {
+    primary: '#ffffff',
+    secondary: '#8E8E93',
+  },
 };
 `);
-    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/index.ts"), `export * from './light';\nexport * from './dark';\n`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/text-theme.ts"), `import { FONT_FAMILY } from '@assets/fonts';
+import { TextType } from '@types';
+import { TextStyle } from 'react-native';
+
+export const fontFamily: TextType<string> = {
+  'bold-2xl': FONT_FAMILY.bold,
+  'bold-xl': FONT_FAMILY.bold,
+  'bold-lg': FONT_FAMILY.bold,
+  'bold-base': FONT_FAMILY.bold,
+  'bold-sm': FONT_FAMILY.bold,
+  'bold-xs': FONT_FAMILY.bold,
+  'bold-2xs': FONT_FAMILY.bold,
+  'regular-2xl': FONT_FAMILY.regular,
+  'regular-xl': FONT_FAMILY.regular,
+  'regular-lg': FONT_FAMILY.regular,
+  'regular-base': FONT_FAMILY.regular,
+  'regular-sm': FONT_FAMILY.regular,
+  'regular-xs': FONT_FAMILY.regular,
+  'regular-2xs': FONT_FAMILY.regular,
+  'light-2xl': FONT_FAMILY.light,
+  'light-xl': FONT_FAMILY.light,
+  'light-lg': FONT_FAMILY.light,
+  'light-base': FONT_FAMILY.light,
+  'light-sm': FONT_FAMILY.light,
+  'light-xs': FONT_FAMILY.light,
+  'light-2xs': FONT_FAMILY.light,
+};
+
+export const fontWeight: TextType<TextStyle['fontWeight']> = {
+  'bold-2xl': '700',
+  'bold-xl': '700',
+  'bold-lg': '700',
+  'bold-base': '700',
+  'bold-sm': '700',
+  'bold-xs': '700',
+  'bold-2xs': '700',
+  'regular-2xl': '400',
+  'regular-xl': '400',
+  'regular-lg': '400',
+  'regular-base': '400',
+  'regular-sm': '400',
+  'regular-xs': '400',
+  'regular-2xs': '400',
+  'light-2xl': '300',
+  'light-xl': '300',
+  'light-lg': '300',
+  'light-base': '300',
+  'light-sm': '300',
+  'light-xs': '300',
+  'light-2xs': '300',
+};
+
+export const fontSize: TextType<number> = {
+  'bold-2xl': 24,
+  'bold-xl': 20,
+  'bold-lg': 16,
+  'bold-base': 14,
+  'bold-sm': 12,
+  'bold-xs': 10,
+  'bold-2xs': 8,
+  'regular-2xl': 24,
+  'regular-xl': 20,
+  'regular-lg': 16,
+  'regular-base': 14,
+  'regular-sm': 12,
+  'regular-xs': 10,
+  'regular-2xs': 8,
+  'light-2xl': 24,
+  'light-xl': 20,
+  'light-lg': 16,
+  'light-base': 14,
+  'light-sm': 12,
+  'light-xs': 10,
+  'light-2xs': 8,
+};
+
+export const lineHeight: TextType<number> = {
+  'bold-2xl': 30,
+  'bold-xl': 25,
+  'bold-lg': 20,
+  'bold-base': 18,
+  'bold-sm': 15,
+  'bold-xs': 12,
+  'bold-2xs': 10,
+  'regular-2xl': 30,
+  'regular-xl': 25,
+  'regular-lg': 20,
+  'regular-base': 18,
+  'regular-sm': 15,
+  'regular-xs': 12,
+  'regular-2xs': 10,
+  'light-2xl': 30,
+  'light-xl': 25,
+  'light-lg': 20,
+  'light-base': 18,
+  'light-sm': 15,
+  'light-xs': 12,
+  'light-2xs': 10,
+};
+`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/theme/index.ts"), `export * from './light';
+export * from './dark';
+export * from './text-theme';
+`);
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/hooks/useTheme.ts"), `import { useEffect } from 'react';
 import { useColorScheme, Appearance, ColorSchemeName } from 'react-native';
 import { lightTheme, darkTheme } from '@theme';
 import { handlerGetItem, handlerSetItem } from '@constants';
 
 const USER_THEME = 'USER_THEME';
+
+export type DotPaths<T, Prefix extends string = ''> = {
+  [K in keyof T & string]: T[K] extends string
+    ? \`\${Prefix}\${K}\`
+    : T[K] extends object
+    ? DotPaths<T[K], \`\${Prefix}\${K}.\`>
+    : never;
+}[keyof T & string];
+
+export type DotValue<
+  T,
+  P extends string,
+> = P extends \`\${infer Key}.\${infer Rest}\`
+  ? Key extends keyof T
+    ? DotValue<T[Key], Rest>
+    : never
+  : P extends keyof T
+  ? T[P]
+  : never;
+
+export type ThemeType = typeof lightTheme;
+export type ColorProp = DotPaths<ThemeType>;
+
+export const resolveThemeColor = <T extends object>(
+  themeObj: T,
+  path: string & DotPaths<T>,
+): string =>
+  path
+    .split('.')
+    .reduce<unknown>(
+      (obj: unknown, key: string) => (obj as Record<string, unknown>)[key],
+      themeObj,
+    ) as string;
 
 export const useTheme = () => {
   const scheme = useColorScheme();
@@ -944,7 +1097,7 @@ export const useTheme = () => {
     if (savedTheme && savedTheme !== scheme) {
       Appearance.setColorScheme(savedTheme);
     }
-  }, []);
+  }, [scheme]);
 
   const toggleTheme = () => {
     const nextScheme = scheme === 'dark' ? 'light' : 'dark';
@@ -956,7 +1109,6 @@ export const useTheme = () => {
 
   return { theme, scheme, toggleTheme };
 };
-
 `);
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/hooks/index.ts"), `export * from './useTheme';\nexport *from './i18n-hooks';\nexport * from './navigation-hooks';\n`);
     const i18nHooksDir = path_1.default.join(targetDir, "src/hooks/i18n-hooks");
@@ -1278,6 +1430,13 @@ export const URL_PATH = {
   },
 };
 `);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/assets/fonts/Font.ts"), `export const FONT_FAMILY = {
+  light: 'Montserrat-Light',
+  regular: 'Montserrat-Regular',
+  bold: 'Montserrat-Bold',
+};
+`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/assets/fonts/index.ts"), `export * from './Font';\n`);
     const welcomeDir = path_1.default.join(targetDir, "src/i18n/welcome");
     fs_extra_1.default.mkdirSync(welcomeDir, { recursive: true });
     fs_extra_1.default.writeFileSync(path_1.default.join(welcomeDir, "id.json"), `{\n  "welcome:greeting": "Selamat Datang",
@@ -1391,9 +1550,81 @@ export const nameSpaces: Record<NameSpace, NameSpace> = nameSpaceNames.reduce(
   {} as Record<NameSpace, NameSpace>,
 );
 `);
-    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/components/base/index.ts"), `// Base components\n`);
-    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/components/index.ts"), `export * from './base';\n`);
-    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/types/index.ts"), `// App Types\n`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/components/text/Text.tsx"), `import React, { ReactNode } from 'react';
+import {
+  StyleSheet,
+  Text as TextRN,
+  TextProps as TextRNProps,
+  TextStyle,
+} from 'react-native';
+import { TranslationKey } from '@i18n';
+import type { Text as TextType } from '@types';
+import {
+  ColorProp,
+  resolveThemeColor,
+  useTheme,
+  useTypedTranslation,
+} from '@hooks';
+import { fontFamily, fontSize, fontWeight, lineHeight } from '@theme';
+
+export interface TextProps extends TextRNProps {
+  type?: TextType;
+  color?: ColorProp;
+  children?: ReactNode;
+  textAlign?: TextStyle['textAlign'];
+  trans?: TranslationKey;
+  text?: string;
+}
+
+export const Text = ({
+  type = 'regular-base',
+  color = 'text.primary',
+  textAlign,
+  trans,
+  text,
+  children,
+  style,
+  ...props
+}: TextProps) => {
+  const { theme } = useTheme();
+  const { translate } = useTypedTranslation();
+  const content = trans ? translate(trans as TranslationKey) : text || children;
+
+  return (
+    <TextRN
+      {...props}
+      allowFontScaling={false}
+      style={StyleSheet.flatten([
+        {
+          fontFamily: fontFamily[type],
+          fontSize: fontSize[type],
+          fontWeight: fontWeight[type],
+          lineHeight: !style ? lineHeight[type] : undefined,
+          color: resolveThemeColor(theme, color),
+          textAlign,
+        },
+        style,
+      ])}
+    >
+      {content}
+    </TextRN>
+  );
+};
+`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/components/text/index.ts"), `export * from './Text';`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/components/index.ts"), `export * from './text';\n`);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "src/types/index.ts"), `export * from './text-type';`);
+    const textTypeDir = path_1.default.join("src/types", "text-type");
+    fs_extra_1.default.mkdirSync(textTypeDir, { recursive: true });
+    fs_extra_1.default.writeFileSync(path_1.default.join(textTypeDir, "index.ts"), "export * from './TextType';\n");
+    fs_extra_1.default.writeFileSync(path_1.default.join(textTypeDir, "TextType.ts"), `type FontSize = '2xs' | 'xs' | 'sm' | 'base' | 'lg' | 'xl' | '2xl';
+
+type FontWeight = 'light' | 'regular' | 'bold';
+
+export type Text = \`\${FontWeight}-\${FontSize}\`;
+
+export type TextType<T> = { [K in Text]: T };
+`);
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "App.tsx"), `/**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -1449,6 +1680,7 @@ AppRegistry.registerComponent(appName, () => App);
           '@navigation': './src/navigation',
           '@i18n': './src/i18n',
           '@theme': './src/theme',
+          '@types': './src/types',
         },
       },
     ],
@@ -1508,6 +1740,16 @@ APP_ICON=AppIcon
     if (fs_extra_1.default.existsSync(prodSource)) {
         fs_extra_1.default.mkdirSync(targetIconsFolderProd, { recursive: true });
         fs_extra_1.default.copyFileSync(prodSource, path_1.default.join(targetIconsFolderProd, "app-icon.png"));
+    }
+    // Copy font files
+    const cliFontsSource = path_1.default.join(__dirname, "../src/assets/fonts");
+    const targetFontsDir = path_1.default.join(targetDir, "src/assets/fonts");
+    if (fs_extra_1.default.existsSync(cliFontsSource)) {
+        fs_extra_1.default.cpSync(cliFontsSource, targetFontsDir, { recursive: true });
+        console.log(chalk_1.default.green("Font files copied successfully"));
+    }
+    else {
+        console.warn(chalk_1.default.yellow("Font source directory not found at " + cliFontsSource));
     }
     // 1. Android productFlavors
     const rootAndroidBuildGradlePath = path_1.default.join(targetDir, "android/build.gradle");
@@ -1721,6 +1963,8 @@ APP_ICON=AppIcon
                     "@i18n/*": ["src/i18n/*"],
                     "@theme": ["src/theme"],
                     "@theme/*": ["src/theme/*"],
+                    "@types": ["src/types"],
+                    "@types/*": ["src/types/*"],
                 },
             },
             include: ["**/*.ts", "**/*.tsx"],
@@ -2001,6 +2245,14 @@ build-apk-prod:
 	cd android && ./gradlew clean && ./gradlew assembleAppRelease && open ./app/build/outputs/apk/app/release/ && cd ..
 `;
     fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "Makefile"), makefileContent);
+    fs_extra_1.default.writeFileSync(path_1.default.join(targetDir, "react-native.config.js"), `module.exports = {
+  project: {
+    ios: {},
+    android: {},
+  },
+  assets: ['./src/assets/fonts'],
+};
+`);
     console.log(chalk_1.default.cyan("\\nInstalling Pods..."));
     try {
         shelljs_1.default.cd(targetDir);
@@ -2008,6 +2260,13 @@ build-apk-prod:
     }
     catch (error) {
         console.warn(chalk_1.default.yellow("\\nWarning: Failed to install iOS pods. You may need to run pod install manually."));
+    }
+    console.log(chalk_1.default.cyan("Linking fonts with react-native-asset..."));
+    if (shelljs_1.default.exec("npx react-native-asset").code !== 0) {
+        console.warn(chalk_1.default.yellow("react-native-asset linking failed. Run 'npx react-native-asset' manually."));
+    }
+    else {
+        console.log(chalk_1.default.green("Fonts linked successfully"));
     }
     console.log(chalk_1.default.green("Project setup complete!"));
     console.log(chalk_1.default.green(`\nSuccess! RNJet project created at ${targetDir}`));

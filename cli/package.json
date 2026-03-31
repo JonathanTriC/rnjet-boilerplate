@@ -1,6 +1,6 @@
 {
 	"name": "@jonathantri/rnjet",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"description": "Production-grade CLI tool and boilerplate system for React Native",
 	"keywords": [
 		"react-native",
