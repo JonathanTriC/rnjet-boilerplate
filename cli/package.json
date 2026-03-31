@@ -1,6 +1,6 @@
 {
 	"name": "@jonathantri/rnjet",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Production-grade CLI tool and boilerplate system for React Native",
 	"keywords": [
 		"react-native",
@@ -17,7 +17,8 @@
 		"rnjet": "./dist/index.js"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"README.md"
 	],
 	"repository": {
 		"type": "git",
