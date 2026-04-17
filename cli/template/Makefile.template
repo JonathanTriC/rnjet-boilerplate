@@ -1,0 +1,45 @@
+.PHONY: menu
+menu:
+	@echo "Choose an option:"
+	@echo "1. Start Metro with cache reset"
+	@echo "2. Run pod install (iOS)"
+	@echo "3. Run Android Development Debug"
+	@echo "4. Run Android Production Debug"
+	@echo "5. Build Android Development APK"
+	@echo "6. Build Android Production APK"
+	@read -p "Enter number: " choice; \
+	case $$choice in \
+		1) make start ;; \
+		2) make pod ;; \
+		3) make run-android-dev-debug ;; \
+		4) make run-android-prod-debug ;; \
+		5) make build-apk-dev ;; \
+		6) make build-apk-prod ;; \
+		*) echo "Invalid option" ;; \
+	esac
+
+.PHONY: start
+start:
+	yarn start --reset-cache
+
+.PHONY: pod
+pod:
+	cd ios && rm -rf Podfile.lock Pods && pod install && cd ..
+
+.PHONY: run-android-dev-debug
+run-android-dev-debug:
+	yarn android:dev
+
+.PHONY: run-android-prod-debug
+run-android-prod-debug:
+	yarn android:prod
+
+.PHONY: build-apk-dev
+build-apk-dev:
+	echo "Start build apk development"; \
+	cd android && ./gradlew clean && ./gradlew assembleDevAppRelease && open ./app/build/outputs/apk/devApp/release/ && cd ..
+
+.PHONY: build-apk-prod
+build-apk-prod:
+	echo "Start build apk production"; \
+	cd android && ./gradlew clean && ./gradlew assembleAppRelease && open ./app/build/outputs/apk/app/release/ && cd ..

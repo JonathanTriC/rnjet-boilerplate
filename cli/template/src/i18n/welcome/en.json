@@ -1,0 +1,14 @@
+{
+	"welcome:greeting": "Welcome",
+	"welcome:description": "Production-grade CLI tool and boilerplate system for React Native",
+	"welcome:changeThemeTitle": "Change Theme Mode",
+	"welcome:selectTheme": "Select Theme Mode",
+	"welcome:changeLanguageTitle": "Change Language",
+	"welcome:selectLanguage": "Select Language",
+	"welcome:lightMode": "Light Mode",
+	"welcome:darkMode": "Dark Mode",
+	"welcome:indonesian": "Indonesian",
+	"welcome:english": "English",
+	"welcome:aboutTitle": "About Creator",
+	"welcome:contact": "Contact Creator"
+}

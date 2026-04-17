@@ -1,0 +1,14 @@
+{
+	"welcome:greeting": "Selamat Datang",
+	"welcome:description": "Alat CLI profesional siap produksi dan sistem boilerplate canggih untuk React Native",
+	"welcome:changeThemeTitle": "Ubah Mode Tema",
+	"welcome:selectTheme": "Pilih Mode Tema",
+	"welcome:changeLanguageTitle": "Ubah Bahasa",
+	"welcome:selectLanguage": "Pilih Bahasa",
+	"welcome:lightMode": "Mode Terang",
+	"welcome:darkMode": "Mode Gelap",
+	"welcome:indonesian": "Bahasa Indonesia",
+	"welcome:english": "Bahasa Inggris",
+	"welcome:aboutTitle": "Tentang Pembuat",
+	"welcome:contact": "Hubungi Pembuat"
+}

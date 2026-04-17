@@ -1,0 +1,272 @@
+[
+  {
+    "path": "src/api/apiType.d.ts",
+    "start": 3275,
+    "end": 4026
+  },
+  {
+    "path": "src/api/apiUtils.ts",
+    "start": 4030,
+    "end": 7285
+  },
+  {
+    "path": "src/api/client.ts",
+    "start": 7289,
+    "end": 8113
+  },
+  {
+    "path": "src/api/clientWithoutToken.ts",
+    "start": 8117,
+    "end": 8764
+  },
+  {
+    "path": "src/api/apiWrapping.ts",
+    "start": 8768,
+    "end": 14698
+  },
+  {
+    "path": "src/api/index.ts",
+    "start": 14702,
+    "end": 14894
+  },
+  {
+    "path": "src/navigation/navigator/stack/common-stack/CommonStack.tsx",
+    "start": 15510,
+    "end": 16230
+  },
+  {
+    "path": "src/navigation/navigator/stack/common-stack/CommonStackParamList.d.ts",
+    "start": 16233,
+    "end": 16422
+  },
+  {
+    "path": "src/navigation/navigator/stack/common-stack/index.ts",
+    "start": 16425,
+    "end": 16527
+  },
+  {
+    "path": "src/navigation/navigator/stack/main-stack/MainStack.tsx",
+    "start": 16549,
+    "end": 17566
+  },
+  {
+    "path": "src/navigation/navigator/stack/main-stack/MainStackParamList.d.ts",
+    "start": 17569,
+    "end": 17708
+  },
+  {
+    "path": "src/navigation/navigator/stack/main-stack/index.ts",
+    "start": 17711,
+    "end": 17809
+  },
+  {
+    "path": "src/navigation/navigator/stack/index.ts",
+    "start": 17813,
+    "end": 17941
+  },
+  {
+    "path": "src/navigation/navigator/index.ts",
+    "start": 17971,
+    "end": 18100
+  },
+  {
+    "path": "src/navigation/navigator/Navigator.tsx",
+    "start": 18103,
+    "end": 18881
+  },
+  {
+    "path": "src/navigation/navigator/screen.ts",
+    "start": 18884,
+    "end": 19155
+  },
+  {
+    "path": "src/navigation/navigator/type.d.ts",
+    "start": 19158,
+    "end": 19296
+  },
+  {
+    "path": "src/navigation/navigator/useNavigator.ts",
+    "start": 19299,
+    "end": 20029
+  },
+  {
+    "path": "src/navigation/route-app/index.ts",
+    "start": 20059,
+    "end": 20155
+  },
+  {
+    "path": "src/navigation/route-app/styles.ts",
+    "start": 20158,
+    "end": 20338
+  },
+  {
+    "path": "src/navigation/route-app/RouteApp.tsx",
+    "start": 20341,
+    "end": 21418
+  },
+  {
+    "path": "src/navigation/index.ts",
+    "start": 21422,
+    "end": 21559
+  },
+  {
+    "path": "src/components/index.ts",
+    "start": 25308,
+    "end": 25370
+  },
+  {
+    "path": "src/modules/index.ts",
+    "start": 25495,
+    "end": 25594
+  },
+  {
+    "path": "src/theme/light.ts",
+    "start": 25598,
+    "end": 26067
+  },
+  {
+    "path": "src/theme/dark.ts",
+    "start": 26071,
+    "end": 26453
+  },
+  {
+    "path": "src/theme/text-theme.ts",
+    "start": 26457,
+    "end": 28841
+  },
+  {
+    "path": "src/theme/index.ts",
+    "start": 28845,
+    "end": 28996
+  },
+  {
+    "path": "src/hooks/useTheme.ts",
+    "start": 29000,
+    "end": 30684
+  },
+  {
+    "path": "src/hooks/index.ts",
+    "start": 30688,
+    "end": 30856
+  },
+  {
+    "path": "src/constants/functional.ts",
+    "start": 36551,
+    "end": 38339
+  },
+  {
+    "path": "src/constants/globalStyles.ts",
+    "start": 38343,
+    "end": 38609
+  },
+  {
+    "path": "src/constants/index.ts",
+    "start": 38613,
+    "end": 38798
+  },
+  {
+    "path": "src/constants/keys.ts",
+    "start": 38802,
+    "end": 38902
+  },
+  {
+    "path": "src/constants/url.ts",
+    "start": 38906,
+    "end": 39251
+  },
+  {
+    "path": "src/assets/fonts/Font.ts",
+    "start": 39255,
+    "end": 39454
+  },
+  {
+    "path": "src/assets/fonts/index.ts",
+    "start": 39458,
+    "end": 39562
+  },
+  {
+    "path": "src/i18n/index.ts",
+    "start": 40608,
+    "end": 43631
+  },
+  {
+    "path": "src/components/text/Text.tsx",
+    "start": 43635,
+    "end": 45075
+  },
+  {
+    "path": "src/components/text/index.ts",
+    "start": 45079,
+    "end": 45184
+  },
+  {
+    "path": "src/components/button/Button.tsx",
+    "start": 45188,
+    "end": 49718
+  },
+  {
+    "path": "src/components/button/index.ts",
+    "start": 49722,
+    "end": 49833
+  },
+  {
+    "path": "src/components/skeleton-loading/SkeletonLoading.tsx",
+    "start": 49837,
+    "end": 50686
+  },
+  {
+    "path": "src/components/skeleton-loading/index.ts",
+    "start": 50690,
+    "end": 50820
+  },
+  {
+    "path": "src/components/text-field/TextField.tsx",
+    "start": 50824,
+    "end": 58025
+  },
+  {
+    "path": "src/components/text-field/index.ts",
+    "start": 58029,
+    "end": 58147
+  },
+  {
+    "path": "src/components/index.ts",
+    "start": 58151,
+    "end": 58348
+  },
+  {
+    "path": "src/types/index.ts",
+    "start": 58352,
+    "end": 58452
+  },
+  {
+    "path": "App.tsx",
+    "start": 58947,
+    "end": 59394
+  },
+  {
+    "path": "index.js",
+    "start": 59398,
+    "end": 59700
+  },
+  {
+    "path": ".env.development",
+    "start": 61646,
+    "end": 61712
+  },
+  {
+    "path": ".env.production",
+    "start": 61715,
+    "end": 61781
+  },
+  {
+    "path": "Makefile",
+    "start": 87574,
+    "end": 87641
+  },
+  {
+    "path": "react-native.config.js",
+    "start": 87645,
+    "end": 87825
+  }
+]
